@@ -1,0 +1,73 @@
+{
+  "kind": "collectionType",
+  "collectionName": "calls",
+  "info": {
+    "singularName": "call",
+    "pluralName": "calls",
+    "displayName": "Call",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "perps": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::perp.perp",
+      "mappedBy": "calls"
+    },
+    "notes": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "time_of_call": {
+      "type": "time"
+    },
+    "units": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "calls"
+    },
+    "location": {
+      "type": "json"
+    },
+    "dispatcher": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "calls"
+    },
+    "callback": {
+      "type": "biginteger"
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "MVA",
+        "EDP",
+        "Robbery",
+        "M1010"
+      ]
+    },
+    "Images_and_videos": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}
